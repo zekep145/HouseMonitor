@@ -6,11 +6,14 @@ def main():
 	cam = Camera()
 	sensor = MotionSensor()
 
-	location = '/home/pi/Desktop/SecurityImages/'
+	picLocation = '/home/pi/Desktop/SecurityImages/'
+
+	vidLocation = '/home/pi/Desktop/SecurityVideos/'
 
 	for i in range(2):
-		cam.TakePicture("{0}image{1}.jpg".format(location, i))
+		cam.TakePicture("{0}image{1}.jpg".format(picLocation, i+2))
 
+	cam.TakeVideo("{0}testvideo.h264".format(vidLocation),5)
 
 if __name__ == '__main__':
 
