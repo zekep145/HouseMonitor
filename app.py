@@ -10,11 +10,12 @@ def main():
 
     vidLocation = '/home/pi/Desktop/SecurityVideos/'
 
-    for i in range(2):
-        cam.TakePicture("{0}image{1}.jpg".format(picLocation, i + 2))
+    #for i in range(2):
+    #    cam.TakePicture("{0}image{1}.jpg".format(picLocation, i + 2))
 
-    cam.TakeVideo("{0}testvideo.h264".format(vidLocation), 5)
+    #cam.TakeVideo("{0}testvideo.h264".format(vidLocation), 5)
 
+    sensor.waitformotion(30)
 
 if __name__ == '__main__':
     main()
