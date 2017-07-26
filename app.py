@@ -15,7 +15,7 @@ def main():
 
     #cam.TakeVideo("{0}testvideo.h264".format(vidLocation), 5)
 
-    sensor.waitformotion(30)
+    motion_detected = sensor.checkformotion()
 
 if __name__ == '__main__':
     main()

@@ -8,15 +8,12 @@ class MotionSensor:
         print("Creating new MotionSensor Object")
 
 
-    def waitformotion(self, seconds):
-        timer = 1
+    def checkformotion(self):
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(26, GPIO.IN)
-        print("Waiting for motion to be detected...")
-        while timer/10 < seconds:
-            if (GPIO.input(26) == 1):
-                print("Motion detected!")
-		break
-            elif (GPIO.input(26) == 0):
-                print("Motion not detected")
-            time.sleep(0.1)
+        if (GPIO.input(26) == 1):
+            print("Motion detected!")
+            return 1
+        elif (GPIO.input(26) == 0):
+            print("Motion not detected")
+            return 0
