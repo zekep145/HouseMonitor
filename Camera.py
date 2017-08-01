@@ -1,5 +1,5 @@
 # This class is used for controlling the camera
-from picamera import PiCamera
+from mockpicamera import PiCamera
 from time import sleep
 from datetime import datetime
 
