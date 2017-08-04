@@ -1,5 +1,5 @@
 # This class contains all methods that interact with the motion sensor
-import RPi.GPIO as GPIO
+import MockGPIO as GPIO
 
 class MotionSensor:
 
