@@ -1,11 +1,11 @@
 # This class contains all methods that interact with the motion sensor
-import MockGPIO as GPIO
+import Mocks.MockGPIO as GPIO
+
 
 class MotionSensor:
 
     def __init__(self):
         print("Creating new MotionSensor Object")
-
 
     def checkformotion(self):
         GPIO.setmode(GPIO.BCM)
@@ -14,5 +14,4 @@ class MotionSensor:
             print("Motion detected!")
             return 1
         elif GPIO.input(26) == 0:
-            print("Motion not detected")
             return 0
