@@ -32,7 +32,7 @@ def main():
         cam.close()
         return render_template('picture.html')
 
-    app.run(debug=True)
+    app.run()
 
 if __name__ == '__main__':
     main()
