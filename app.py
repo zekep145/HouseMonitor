@@ -12,7 +12,7 @@ def main():
     sensor = MotionSensor()
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    picLocation = dir_path + '\\static\\'
+    picLocation = dir_path + '\\static\\test.jpg'
 
     vidLocation = '/home/pi/Desktop/SecurityVideos/'
 
