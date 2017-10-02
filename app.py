@@ -12,7 +12,8 @@ def main():
     sensor = MotionSensor()
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    picLocation = dir_path + '\\static\\test.jpg'
+    print(dir_path)
+    picLocation = dir_path + '/static/test.jpg'
 
     vidLocation = '/home/pi/Desktop/SecurityVideos/'
 
@@ -22,8 +23,6 @@ def main():
     def show_post(post_id):
         # show the post with the given id, the id is an integer
         return 'Post %d' % post_id
-
-    cam.TakePicture(picLocation)
 
     @app.route('/')
     def index():
