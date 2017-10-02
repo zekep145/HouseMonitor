@@ -14,7 +14,7 @@ class Camera:
         self.camera.annotate_text = str(datetime.now())
 
     def TakePicture(self, location):
-        print("Taking picture!")
+        print("Taking picture! Saving in {0}".format(location))
         self.camera.capture(location)
         self.camera.stop_preview()
 

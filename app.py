@@ -3,6 +3,7 @@ from Camera import Camera
 from flask import Flask
 from flask import render_template
 from time import sleep
+import os
 
 
 def main():
@@ -10,7 +11,8 @@ def main():
     cam = Camera()
     sensor = MotionSensor()
 
-    picLocation = '/home/pi/Desktop/SecurityImages/'
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    picLocation = dir_path + '\\static\\'
 
     vidLocation = '/home/pi/Desktop/SecurityVideos/'
 
@@ -26,6 +28,11 @@ def main():
     @app.route('/')
     def index():
         return render_template('index.html')
+
+    @app.route('/takepicture')
+    def takepicture():
+        cam.TakePicture(picLocation)
+        return render_template('picture.html')
 
     app.run(debug=True)
 

@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
 
-  <title>House Monitor</title>
-  <meta name="description" content="House Monitor">
+  <title>Picture</title>
+  <meta name="deMonitorscription" content="Picture">
   <meta name="author" content="Zeke Pendexter">
   <title>Camera</title>
 
@@ -17,13 +17,10 @@
 <body>
 <div id="container" width="100%">
   <div style="float:left; width='50%';">
-    <img src="static/frog.jpg" width="50%" height="50%">
+    <img src="static/picture.jpg" width="50%" height="50%">
   </div>
   <div style="float:right; width='50%';">
-    <form>
-      <button formaction="{{ url_for('takepicture') }}">Take Picture!</button>
-    </form>
-    <a href="{{ url_for('takepicture') }}">take picture</a>
+    <button type="submit" formaction="{{ url_for('takepicture') }} " formmethod="get">Take Picture!</button>
   </div>
 </div>
 </body>
