@@ -1,5 +1,5 @@
 # This class is used for controlling the camera
-from Mocks.MockPiCamera import PiCamera
+from Mocks.Mockpicamera import PiCamera
 from time import sleep
 from datetime import datetime
 
