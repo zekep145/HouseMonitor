@@ -29,7 +29,6 @@ def main():
     @app.route('/takepicture')
     def takepicture():
         cam.TakePicture(picLocation)
-        cam.close()
         return render_template('picture.html')
 
     app.run()

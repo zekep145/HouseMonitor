@@ -20,7 +20,9 @@
     <img src="static/picture.jpg" width="50%" height="50%">
   </div>
   <div style="float:right; width='50%';">
-    <button type="submit" formaction="{{ url_for('takepicture') }} " formmethod="get">Take Picture!</button>
+    <form>
+      <button formaction="{{ url_for('takepicture') }}">Take Picture!</button>
+    </form>
   </div>
 </div>
 </body>
