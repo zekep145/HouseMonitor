@@ -2,7 +2,6 @@ from MotionSensor import MotionSensor
 from Camera import Camera
 from flask import Flask
 from flask import render_template
-from time import sleep
 import os
 
 
@@ -14,7 +13,6 @@ def main():
     dir_path = os.path.dirname(os.path.realpath(__file__))
     print(dir_path)
     picLocation = dir_path + '/static/test.jpg'
-
     vidLocation = '/home/pi/Desktop/SecurityVideos/'
 
     motion_detected = sensor.checkformotion()
@@ -31,6 +29,7 @@ def main():
     @app.route('/takepicture')
     def takepicture():
         cam.TakePicture(picLocation)
+        cam.close()
         return render_template('picture.html')
 
     app.run(debug=True)

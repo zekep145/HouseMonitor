@@ -1,5 +1,5 @@
 # This class contains all methods that interact with the motion sensor
-import Mocks.MockGPIO as GPIO
+import Mocks.GPIO as GPIO
 
 
 class MotionSensor:
