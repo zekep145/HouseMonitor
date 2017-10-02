@@ -11,6 +11,8 @@ class Camera:
         print("Creating new Camera object")
         print("Previewing camera...")
         self.camera.start_preview()
+        sleep(3)
+        self.camera.stop_preview()
         self.camera.annotate_text = str(datetime.now())
 
     def TakePicture(self, location):
