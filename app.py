@@ -4,6 +4,10 @@ from flask import Flask
 from flask import render_template
 import os
 
+from tornado.wsgi import WSGIContainer
+from tornado.httpserver import HTTPServer
+from tornado.ioloop import IOLoop
+
 
 def main():
     app = Flask(__name__)
@@ -31,7 +35,9 @@ def main():
         cam.TakePicture(picLocation)
         return render_template('picture.html')
 
-    app.run()
+    http_server = HTTPServer(WSGIContainer(app))
+    http_server.listen(80)  # serving on port 5000
+    IOLoop.instance().start()
 
 if __name__ == '__main__':
     main()
