@@ -1,9 +1,9 @@
 from MotionSensor import MotionSensor
 from Camera import Camera
+from Twilio import Twilio
 from flask import Flask
 from flask import render_template
 import os
-
 from tornado.wsgi import WSGIContainer
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
@@ -20,6 +20,7 @@ def main():
     vidLocation = '/home/pi/Desktop/SecurityVideos/'
 
     motion_detected = sensor.checkformotion()
+    twilio = Twilio()
 
     @app.route('/post/<int:post_id>')
     def show_post(post_id):
