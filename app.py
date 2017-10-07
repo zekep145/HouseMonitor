@@ -4,6 +4,7 @@ from Twilio import Twilio
 from flask import Flask
 from flask import render_template
 import os
+import time
 from tornado.wsgi import WSGIContainer
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
@@ -16,7 +17,8 @@ def main():
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
     print(dir_path)
-    picLocation = dir_path + '/static/test.jpg'
+    picName = "pic-{0}.jpg".format(time.strftime("%Y%m%d-%H%M%S"))
+    picLocation = dir_path + '/static/' + picName
     vidLocation = '/home/pi/Desktop/SecurityVideos/'
 
     motion_detected = sensor.checkformotion()
@@ -34,7 +36,7 @@ def main():
     @app.route('/takepicture')
     def takepicture():
         cam.TakePicture(picLocation)
-        return render_template('picture.html')
+        return render_template('picture.html', image = picName)
 
     http_server = HTTPServer(WSGIContainer(app))
     http_server.listen(80)  # serving on port 5000
