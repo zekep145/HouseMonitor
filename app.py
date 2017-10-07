@@ -3,12 +3,19 @@ from Camera import Camera
 from Twilio import Twilio
 from flask import Flask
 from flask import render_template
-import os
-import time
+import os, re, time
 from tornado.wsgi import WSGIContainer
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
 
+
+def purge(dir, pattern, no_delete):
+    for f in os.listdir(dir):
+        if re.search(pattern, f):
+            if no_delete != f:
+                os.remove(os.path.join(dir, f))
+            else:
+                pass
 
 def main():
     app = Flask(__name__)
@@ -35,6 +42,7 @@ def main():
     def takepicture():
         picName = "pic-{0}.jpg".format(time.strftime("%Y%m%d-%H%M%S"))
         picLocation = dir_path + '/static/' + picName
+        purge(dir_path + '/static', 'pic-201{1}.*\.jpg', picName)
         cam.TakePicture(picLocation)
         return render_template('picture.html', image = picName)
 
