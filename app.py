@@ -17,8 +17,6 @@ def main():
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
     print(dir_path)
-    picName = "pic-{0}.jpg".format(time.strftime("%Y%m%d-%H%M%S"))
-    picLocation = dir_path + '/static/' + picName
     vidLocation = '/home/pi/Desktop/SecurityVideos/'
 
     motion_detected = sensor.checkformotion()
@@ -35,6 +33,8 @@ def main():
 
     @app.route('/takepicture')
     def takepicture():
+        picName = "pic-{0}.jpg".format(time.strftime("%Y%m%d-%H%M%S"))
+        picLocation = dir_path + '/static/' + picName
         cam.TakePicture(picLocation)
         return render_template('picture.html', image = picName)
 
