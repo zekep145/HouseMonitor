@@ -46,8 +46,10 @@ def main():
         cam.TakePicture(picLocation)
         return render_template('picture.html', image = picName)
 
+    print("Setting up HTTP server...")
     http_server = HTTPServer(WSGIContainer(app))
     http_server.listen(80)  # serving on port 5000
+    print("Listening on port 5000")
     IOLoop.instance().start()
 
 if __name__ == '__main__':
