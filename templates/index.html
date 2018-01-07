@@ -8,6 +8,7 @@
   <meta name="description" content="House Monitor">
   <meta name="author" content="Zeke Pendexter">
   <title>Camera</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -15,11 +16,11 @@
 </head>
 
 <body>
-<div id="container" width="100%">
-  <div style="float:left; width='50%';">
-    <img src="static/frog.jpg" width="50%" height="50%">
+<div id="container" class="row">
+  <div class="column">
+    <img src="static/frog.jpg" width="20%" height="20%">
   </div>
-  <div style="float:right; width='50%';">
+  <div class="column">
     <form>
       <button formaction="{{ url_for('takepicture') }}">Take Picture!</button>
     </form>
